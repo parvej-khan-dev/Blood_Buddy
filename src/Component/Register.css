@@ -39,19 +39,20 @@ body {
   }
 
   .head {
-    font-size: 64px;
+    font-size: 35px;
+    margin: 19px;
   }
 
   input,
   select {
-    width: 100%;
+    width: 92%;
     margin: 10px 0px;
     height: 3rem;
     font-size: 22px;
   }
 
   input[type="submit"] {
-    width: 100%;
+    width: 92%;
     margin: 0px;
   }
 
