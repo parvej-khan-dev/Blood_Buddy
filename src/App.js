@@ -1,13 +1,12 @@
 import "./App.css";
 import Navbar from "./Component/Navbar";
-
-import { useState } from "react";
+import Register from "./Component/Register";
 
 function App() {
-  const [showMenu, setShowMenu] = useState(false);
   return (
     <div className="App ">
       <Navbar />
+      <Register />
     </div>
   );
 }

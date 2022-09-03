@@ -1,0 +1,61 @@
+input,
+select {
+  border: 2px solid white;
+  margin-top: 20px;
+  width: 17rem;
+  height: 45px;
+  padding-left: 10px;
+  font-size: 20px;
+  text-transform: capitalize;
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+form {
+  overflow: hidden;
+}
+label {
+  margin-top: 10px;
+}
+
+body {
+  font-family: monospace;
+}
+
+@media only screen and (max-width: 600px) {
+  .countiner {
+    border: none;
+    box-shadow: none;
+  }
+
+  img {
+    display: none;
+  }
+
+  .input-box {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .head {
+    font-size: 64px;
+  }
+
+  input,
+  select {
+    width: 100%;
+    margin: 10px 0px;
+    height: 3rem;
+    font-size: 22px;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    margin: 0px;
+  }
+
+  form {
+    width: 100%;
+  }
+}

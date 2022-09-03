@@ -74,3 +74,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 background : #FE3C47
 text-color : #FFFFF
 black-color : #0000
+
+## Make Navbar
+*add logo and menu 
+** menu slider 
+
