@@ -5,7 +5,7 @@ const Search = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
   const [q, setQ] = useState("");
-  const [searchParam] = useState(["capital", "name", "numericCode"]);
+  const [searchParam] = useState(["address", "name", "website"]);
   const [filterParam, setFilterParam] = useState(["All"]);
 
   // fatec api data
@@ -119,7 +119,7 @@ const Search = () => {
               return (
                 <tr key={user.id}>
                   <td className="border-2">{user.name}</td>
-                  <td className="border-2">{user.address.city}</td>
+                  <td className="border-2">{user.website}</td>
                   <td className="border-2">{user.phone}</td>
                   <td className="border-2">{user.username}</td>
                   <td className="border-2">Yes</td>
