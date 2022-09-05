@@ -13,29 +13,44 @@ const Register = () => {
         <form className="flex flex-col ml-5   my-10">
           {/* full name */}
           <div className="FullNam flex flex-row input-box justify-around ">
-            <input type="text" name="name" placeholder="first Name" />
-            <input type="text" name="name" placeholder="last Name" />
+            <input
+              type="text"
+              name="name"
+              placeholder="first Name"
+              className="bg-transparent border-2 pl-2 ml-1 mr-5 capitalize border-white"
+            />
+            <input
+              type="text"
+              name="name"
+              placeholder="last Name"
+              className="bg-transparent border-2 pl-2 ml-1 mr-5 capitalize border-white"
+            />
           </div>
           {/* email */}
           <div className="flex flex-row input-box justify-around">
-            <input type="email" name="email" placeholder="email" />
-            <select className="text-gray-400">
+            <input
+              type="email"
+              name="email"
+              placeholder="email"
+              className="bg-transparent border-2 pl-2 ml-1 mr-5 capitalize border-white"
+            />
+            <input
+              type="number"
+              name="Phone Number"
+              placeholder="phone number"
+              className="bg-transparent border-2 pl-2 ml-1 mr-5 capitalize border-white"
+            />
+          </div>
+          {/* blood grop and phone number */}
+          <div className="flex flex-row input-box justify-around">
+            <select className="bg-black block w-full mr-5 ml-1 border-2 pl-2   capitalize border-white">
               <option defaultValue value="Availablty">
                 Availablty
               </option>
               <option value="YES">YES</option>
               <option value="NO">NO</option>
             </select>
-          </div>
-          {/* blood grop and phone number */}
-          <div className="flex flex-row input-box justify-around">
-            <input
-              type="number"
-              name="Phone Number"
-              placeholder="phone number"
-              className=" w-50  "
-            />
-            <select className="text-gray-400">
+            <select className="bg-black block w-full mr-5 ml-1 border-2 pl-2   capitalize border-white">
               <option defaultValue value="Select Blood Group">
                 Select Blood Group
               </option>
@@ -54,20 +69,20 @@ const Register = () => {
               type="text"
               name="City"
               placeholder="City"
-              className="w-50 "
+              className="bg-transparent border-2 pl-2 ml-1 mr-5 capitalize border-white"
             />
             <input
               type="text"
               name="State"
               placeholder="State"
-              className=" w-50 "
+              className="bg-transparent border-2 pl-2 ml-1 mr-5 capitalize border-white"
             />
           </div>
 
           <input
             type="submit"
             value="Submit"
-            className="w-[35rem] mx-5 my-7 hover:bg-red-600 "
+            className="w-[35rem] mx-5  my-5 hover:bg-red-600 border-2 border-white "
           />
         </form>
       </div>

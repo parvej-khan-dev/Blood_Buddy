@@ -1,14 +1,7 @@
-input,
-select {
-  border: 2px solid white;
-  margin-top: 20px;
-  width: 17rem;
-  height: 45px;
-  padding-left: 10px;
-  font-size: 20px;
-  text-transform: capitalize;
-  border-radius: 10px;
-  background-color: transparent;
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
 }
 
 form {
@@ -21,7 +14,11 @@ label {
 body {
   font-family: monospace;
 }
+textarea {
+  border: 2px solid white;
+}
 
+/* moblie resosivcance  */
 @media only screen and (max-width: 600px) {
   .countiner {
     border: none;

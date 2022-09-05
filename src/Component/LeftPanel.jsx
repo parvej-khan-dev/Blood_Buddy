@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { HiOutlinePlusCircle, HiSearch, HiUserCircle } from "react-icons/hi";
+import {
+  HiOutlinePlusCircle,
+  HiSearch,
+  HiUserCircle,
+  HiOutlineHome,
+} from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 const LeftPanel = () => {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -27,44 +33,67 @@ const LeftPanel = () => {
         </svg>
       )}
       <div
-        className={`top-[68px] right-0 w-[35vw] bg-white	text-left  text-white fixed h-full z-40  ease-in-out duration-300 ${
+        className={`top-[68px] right-0 w-[20vw] bg-white	text-left  text-white fixed h-full z-40  ease-in-out duration-300 ${
           showSidebar ? "translate-x-0 " : "translate-x-full"
         }`}
       >
         <h3 className="mt-20 text-4xl font-semibold text-white">
           <ul>
-            <li
-              className="bg-red-600 h-15 text-2xl py-2 uppercase
+            <Link to="/">
+              <li
+                className="bg-red-600 h-15 text-[22px] py-2 
         shadow-lg shadow-red-600/50 m-4 hover:border-red-600 cursor-pointer hover:border-2  p-2 rounded hover:bg-black
         hover:text-red-600"
-            >
-              <HiUserCircle
-                className="  text-4xl font-bold
+                onClick={() => setShowSidebar(!showSidebar)}
+              >
+                <HiOutlineHome
+                  className="  text-2xl font-bold
           text-white rounded  inline mx-3 "
-              />
-              Register for Blood Donation
-            </li>
-            <li
-              className="bg-red-600 h-15 text-2xl py-2 uppercase
+                />
+                Home
+              </li>
+            </Link>
+            <Link to="/register">
+              <li
+                className="bg-red-600 h-15 text-[22px] py-2 
+        shadow-lg shadow-red-600/50 m-4 hover:border-red-600 cursor-pointer hover:border-2  p-2 rounded hover:bg-black
+        hover:text-red-600"
+                onClick={() => setShowSidebar(!showSidebar)}
+              >
+                <HiUserCircle
+                  className="  text-2xl font-bold
+          text-white rounded  inline mx-3 "
+                />
+                Donate Blood
+              </li>
+            </Link>
+            <Link to="/finddoner">
+              <li
+                className="bg-red-600 h-15 text-[22px] py-2 
         shadow-lg shadow-red-600/50 m-4 hover:border-red-600
          hover:border-2  p-2 rounded hover:bg-black hover:text-red-600 cursor-pointer "
-            >
-              <HiSearch
-                className="  text-4xl font-bold
+                onClick={() => setShowSidebar(!showSidebar)}
+              >
+                <HiSearch
+                  className="  text-2xl font-bold
           text-white rounded  inline mx-3 "
-              />
-              Find Blood Near You
-            </li>
-            <li
-              className="bg-red-600 h-15 text-2xl py-2 uppercase
+                />
+                Find Donor
+              </li>
+            </Link>
+            <Link to="/request">
+              <li
+                className="bg-red-600 h-15 text-[22px] py-2 
         shadow-lg shadow-red-600/50 m-4 hover:border-red-600 hover:border-2 cursor-pointer  p-2 rounded hover:bg-black hover:text-red-600"
-            >
-              <HiOutlinePlusCircle
-                className="  text-4xl font-bold
+                onClick={() => setShowSidebar(!showSidebar)}
+              >
+                <HiOutlinePlusCircle
+                  className="  text-2xl font-bold
           text-white rounded  inline mx-3"
-              />
-              Post Blood Request
-            </li>
+                />
+                Blood Request
+              </li>
+            </Link>
           </ul>
         </h3>
       </div>

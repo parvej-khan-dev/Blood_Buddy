@@ -1,6 +1,7 @@
 import React from "react";
 import LeftPanel from "./LeftPanel";
 
+
 const Navbar = () => {
   return (
     <nav className="w-[100%] h-16 bg-[#FE3C47] relative font-sans flex flex-row justify-between items-center">
@@ -32,15 +33,7 @@ const Navbar = () => {
         <p className="text-xl font-sans font-bold">Login</p>
       </div>
 
-      {/* {showMenu ? (
-        <div
-          className={`letf-0 absolute  top-[65px] left-0 ease-in-out duration-300 ${
-            showMenu ? "translate-x-0 " : "translate-x-full"
-          }`}
-        >
-          <LeftPanel />
-        </div>
-      ) : null} */}
+
     </nav>
   );
 };

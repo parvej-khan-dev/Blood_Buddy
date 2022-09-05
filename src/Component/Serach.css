@@ -1,0 +1,23 @@
+input {
+  width: 92%;
+  margin: 10px 0px;
+  height: 3rem;
+  font-size: 22px;
+  border-radius: 10px;
+}
+
+select {
+  width: 20%;
+  margin: 10px 0px;
+  height: 3rem;
+  font-size: 20px;
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+
+td,
+th {
+  padding: 10px;
+}

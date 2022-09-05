@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./Serach.css";
 
 const Search = () => {
   const [error, setError] = useState(null);
@@ -54,10 +55,7 @@ const Search = () => {
         {error.message}, if you get this error, the free API I used might have
         stopped working, but I created a simple example that demonstrate how
         this works,{" "}
-        <a href="https://codepen.io/Spruce_khalifa/pen/mdXEVKq">
-          {" "}
-          check it out{" "}
-        </a>{" "}
+        <a href="https://codepen.io/Spruce_khalifa/pen/mdXEVKq">check it out</a>
       </p>
     );
   } else if (!isLoaded) {
@@ -73,8 +71,9 @@ const Search = () => {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Select Your Location"
-            className="w-[40rem] form-control"
+            className="w-[60%] text-[20px] pl-[10px] bg-black border-2 border-white "
           />
+
           <select
             className="text-gray-400 mx-5"
             onChange={(e) => {
