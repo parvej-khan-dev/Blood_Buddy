@@ -1,7 +1,6 @@
 import React from "react";
 import LeftPanel from "./LeftPanel";
 
-
 const Navbar = () => {
   return (
     <nav className="w-[100%] h-16 bg-[#FE3C47] relative font-sans flex flex-row justify-between items-center">
@@ -11,8 +10,8 @@ const Navbar = () => {
       >
         BloodBuddy
       </h1>
-      <div className="flex flex-col items-center justify-center min-h-screen py-2">
-        <LeftPanel />
+      <div className="flex flex-col  min-h-screen py-2   top-0 right-10">
+        <LeftPanel absolute="absolute" top="16" bgSlider="fixed" />
       </div>
 
       <div className="icon flex mx-[120px] items-center   ">
@@ -32,8 +31,6 @@ const Navbar = () => {
         </svg>
         <p className="text-xl font-sans font-bold">Login</p>
       </div>
-
-
     </nav>
   );
 };

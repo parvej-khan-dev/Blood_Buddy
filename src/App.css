@@ -5,6 +5,7 @@
 body {
   background-color: black;
   color: white;
+  font-family: sans-serif;
 }
 .App-logo {
   height: 40vmin;
@@ -16,8 +17,6 @@ body {
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
-
 
 .App-header {
   background-color: #282c34;

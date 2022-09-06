@@ -1,13 +1,12 @@
 import React from "react";
-// import postImage from "../assets/post.png";
 import postwithbg from "../assets/blood.png";
 import "./Register.css";
 function Postrequest() {
   return (
     <div className=" w-[80%]  h-[70%] mx-auto  my-10 border-white border-2 flex flex-row  rounded shadow-lg  shadow-white/50">
-      <img src={postwithbg} className="w-[45%] " alt="postrequest" />
+      <img src={postwithbg} className="w-[70%] " alt="postrequest" />
       <div>
-        <div>
+        <div className="w-[95%]">
           <h1 className="text-5xl font-bold text-center my-5 head">
             Post Blood Request
           </h1>
@@ -45,7 +44,7 @@ function Postrequest() {
             </div>
             {/* blood grop and phone number */}
             <div className="flex flex-row input-box justify-around">
-              <select className="bg-black block w-full mr-5 ml-1 border-2 pl-2   capitalize border-white">
+              <select className="bg-black block w-full text-xl mr-5 ml-1 border-2 pl-2   capitalize border-white">
                 <option defaultValue value="Select Blood Group" id="bloodgroup">
                   patient Blood Group
                 </option>
@@ -79,7 +78,7 @@ function Postrequest() {
             <input
               type="submit"
               value="Submit"
-              className="w-[35rem] mx-5  my-5 hover:bg-red-600 border-2 border-white "
+              className="w-[34rem] ml-3 text-xl  my-3 hover:bg-red-600 border-2 border-white "
             />
           </form>
         </div>

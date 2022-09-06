@@ -7,13 +7,13 @@ import {
 } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
-const LeftPanel = () => {
+const LeftPanel = ({ absolute, top, bgSlider }) => {
   const [showSidebar, setShowSidebar] = useState(false);
   return (
     <>
       {showSidebar ? (
         <button
-          className="flex text-4xl text-white items-center cursor-pointer fixed right-10 top-2 z-50"
+          className={`${absolute} flex text-4xl text-white items-center cursor-pointer fixed right-10 top-2 z-50`}
           onClick={() => setShowSidebar(!showSidebar)}
         >
           x
@@ -21,7 +21,7 @@ const LeftPanel = () => {
       ) : (
         <svg
           onClick={() => setShowSidebar(!showSidebar)}
-          className="fixed  z-30 flex items-center cursor-pointer right-10 top-4"
+          className={`${absolute}  z-30 flex items-center cursor-pointer right-10 top-4`}
           fill="#fff"
           viewBox="0 0 100 80"
           width="40"
@@ -33,7 +33,7 @@ const LeftPanel = () => {
         </svg>
       )}
       <div
-        className={`top-[68px] right-0 w-[20vw] bg-white	text-left  text-white fixed h-full z-40  ease-in-out duration-300 ${
+        className={` ${bgSlider} top-${top} right-0 w-[20vw] bg-white	text-left  text-white fixed h-full z-40  ease-in-out duration-300 ${
           showSidebar ? "translate-x-0 " : "translate-x-full"
         }`}
       >
