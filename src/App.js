@@ -5,6 +5,7 @@ import Register from "./Component/Register";
 import Search from "./Component/Search";
 import Home from "./Component/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Footer from "./Component/Footer";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/request" element={<Postrequest />}></Route>
           <Route exact path="/finddoner" element={<Search />}></Route>
         </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
   );

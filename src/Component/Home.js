@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import hero from "../assets/hero2.png";
+import CardUI from "./CardUI";
+import Search from "./Search";
 
 const Section = styled.section`
   width: 100%;
@@ -27,15 +29,16 @@ const Image = styled.img`
 
 const H1 = styled.h1`
   width: 100%;
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-family: sans-serif;
-  text-transform: capitalize;
+  text-transform: uppercase;
   margin-bottom: 10px;
   text-align: center;
   font-weight: 700;
   margin: 0px 5px;
   text-align: center;
   line-height: 1.5;
+  margin: 0px 25px;
 `;
 
 const Button = styled.button`
@@ -70,6 +73,34 @@ const Home = () => {
 
         <Image src={hero}></Image>
       </Section>
+
+      {/* find filter */}
+      <div className="pb-20">
+        <h2 className="text-[3.5rem]  font-[800] leading-snug tracking-wide font-['sans-serif'] uppercase mt-10 ">
+          Find Blood Doner<br></br> Near You
+        </h2>
+        <Search />
+      </div>
+
+      {/* Card blood donation camp */}
+      <h2 className="text-[3.5rem]  font-[800] leading-snug tracking-wide font-['sans-serif'] uppercase mt-10 mb-[-2.5rem]">
+        Blood Donation Camp<br></br> Near You
+      </h2>
+      <div className="p-10 m-10 flex flex-row place-items-center">
+        <CardUI
+          name="Blood Camp In Jhotwara"
+          image={require("../assets/blooddoationvaishali.jpg")}
+        />
+        <CardUI
+          name="Blood Camp at Vaishali nagar"
+          image={require("../assets/blooddonationjaipur.jpg")}
+        />
+        <CardUI
+          name="Blood Camp at Vidhadhar nagar"
+          image={require("../assets/bloodmalviya.jpg")}
+        />
+      </div>
+      {/* footer */}
     </div>
   );
 };

@@ -1,36 +1,38 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Serach.css";
+import data from "../data.json";
 
 const Search = () => {
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState([]);
+  // const [error, setError] = useState(null);
+  // const [isLoaded, setIsLoaded] = useState(false);
+  // const [items, setItems] = useState(data);
   const [q, setQ] = useState("");
-  const [searchParam] = useState(["address", "name", "website"]);
+  const [searchParam] = useState(["city", "name", "bloodgroup"]);
   const [filterParam, setFilterParam] = useState(["All"]);
+  const [showdata, setShowData] = useState(false);
 
   // fatec api data
 
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setItems(result);
-        },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      );
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://jsonplaceholder.typicode.com/users")
+  //     .then((res) => res.json())
+  //     .then(
+  //       (result) => {
+  //         setIsLoaded(true);
+  //         setItems(result);
+  //       },
+  //       (error) => {
+  //         setIsLoaded(true);
+  //         setError(error);
+  //       }
+  //     );
+  // }, []);
 
-  const data = Object.values(items);
+  const dataValue = Object.values(data);
 
-  function search(items) {
-    return items.filter((item) => {
-      if (item.username == filterParam) {
+  function search(data) {
+    return data.filter((item) => {
+      if (item.bloodgroup == filterParam) {
         return searchParam.some((newItem) => {
           return (
             item[newItem]?.toString().toLowerCase().indexOf(q.toLowerCase()) >
@@ -48,51 +50,55 @@ const Search = () => {
     });
   }
 
+  function showtoggle() {
+    if (q.length <= 0) {
+      alert("I am an alert box!");
+    } else {
+      setShowData(!showdata);
+    }
+  }
   // help to add blood in dropdown
-  if (error) {
-    return (
-      <p>
-        {error.message}, if you get this error, the free API I used might have
-        stopped working, but I created a simple example that demonstrate how
-        this works,{" "}
-        <a href="https://codepen.io/Spruce_khalifa/pen/mdXEVKq">check it out</a>
-      </p>
-    );
-  } else if (!isLoaded) {
-    return <>loading...</>;
-  } else {
-    return (
-      <div>
-        {/* search header */}
-        <div className="input-box flex flex-row justify-center m-5">
-          <input
-            type="text"
-            name="City"
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-            placeholder="Select Your Location"
-            className="w-[60%] text-[20px] pl-[10px] bg-black border-2 border-white "
-          />
 
-          <select
-            className="text-gray-400 mx-5"
-            onChange={(e) => {
-              setFilterParam(e.target.value);
-            }}
-          >
-            <option defaultValue value="All">
-              Select Blood Group
-            </option>
-            <option value="Bret">Bret</option>
-            <option value="Antonette">Antonette</option>
-            <option value="Samantha">Samantha</option>
-            <option value="Samantha">Samantha</option>
-            <option value="Karianne">Karianne</option>
-            <option value="Maxime_Nienow">Maxime_Nienow</option>
-          </select>
-        </div>
-        {/* get data from api  */}
+  return (
+    <div>
+      {/* search header */}
+      <div className="input-box flex flex-row justify-center m-5">
+        <input
+          type="text"
+          name="City"
+          value={q}
+          onChange={(e) => setQ(e.target.value)}
+          placeholder="Select Your Location"
+          className="w-[60%] text-[20px] pl-[10px] bg-black border-2 border-white "
+        />
 
+        <select
+          className="text-gray-400 mx-5"
+          onChange={(e) => {
+            setFilterParam(e.target.value);
+          }}
+        >
+          <option defaultValue value="All">
+            Select Blood Group
+          </option>
+          <option value="S">S</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+          <option value="2XL">2XL</option>
+          <option value="3XL">3XL</option>
+        </select>
+        <button
+          className="bg-red-600 h-15 text-[22px] py-1  px-8
+        shadow-lg  m-2 hover:border-red-600 cursor-pointer hover:border-2  p-2 rounded hover:bg-black
+        hover:text-red-600"
+          onClick={showtoggle}
+        >
+          Search
+        </button>
+      </div>
+      {/* get data from api  */}
+
+      {showdata && (
         <table className="table-fixed border-2 mx-auto my-10 w-[85%] text-[18px]">
           <thead>
             <tr className="border-2">
@@ -114,22 +120,22 @@ const Search = () => {
             </tr>
           </thead>
           <tbody>
-            {search(data).map((user) => {
+            {search(dataValue).map((user) => {
               return (
                 <tr key={user.id}>
                   <td className="border-2">{user.name}</td>
-                  <td className="border-2">{user.website}</td>
+                  <td className="border-2">{user.city}</td>
                   <td className="border-2">{user.phone}</td>
-                  <td className="border-2">{user.username}</td>
-                  <td className="border-2">Yes</td>
+                  <td className="border-2">{user.bloodgroup}</td>
+                  <td className="border-2">{user.availbty}</td>
                 </tr>
               );
             })}
           </tbody>
         </table>
-      </div>
-    );
-  }
+      )}
+    </div>
+  );
 };
 
 export default Search;
