@@ -21,7 +21,7 @@ const LeftPanel = ({ absolute, top, bgSlider }) => {
       ) : (
         <svg
           onClick={() => setShowSidebar(!showSidebar)}
-          className={`${absolute}  z-30 flex items-center cursor-pointer right-10 top-4`}
+          className={`${absolute}  z-30 flex items-center cursor-pointer md:right-10 right-5 top-4`}
           fill="#fff"
           viewBox="0 0 100 80"
           width="40"
@@ -33,7 +33,7 @@ const LeftPanel = ({ absolute, top, bgSlider }) => {
         </svg>
       )}
       <div
-        className={` ${bgSlider} top-${top} right-0 w-[20vw] bg-white	text-left  text-white fixed h-full z-40  ease-in-out duration-300 ${
+        className={` ${bgSlider} top-${top} right-0 md:w-[20vw] w-[70vw] bg-white	text-left  text-white fixed h-full z-40  ease-in-out duration-300 ${
           showSidebar ? "translate-x-0 " : "translate-x-full"
         }`}
       >

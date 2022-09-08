@@ -40,12 +40,15 @@ textarea {
     margin: 19px;
   }
 
-  input,
-  select {
-    width: 92%;
+  input {
+    width: 100%;
     margin: 10px 0px;
     height: 3rem;
     font-size: 22px;
+  }
+
+  select {
+    width: 92%;
   }
 
   input[type="submit"] {

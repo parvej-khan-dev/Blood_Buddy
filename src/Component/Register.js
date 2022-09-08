@@ -4,10 +4,10 @@ import "./Register.css";
 
 const Register = () => {
   return (
-    <div className="countiner w-[80%]  h-[70%] mx-auto  my-10 border-white border-2 flex flex-row  rounded shadow-lg  shadow-white/50">
-      <img src={donationgif} className="w-[50%] " alt="register" />
-      <div className="w-[50%]">
-        <h1 className="text-5xl font-bold text-center my-5 head">
+    <div className="countiner md:w-[80%]  h-[70%] mx-auto  my-10 border-white border-2 flex flex-row  rounded shadow-lg  shadow-white/50">
+      <img src={donationgif} className="md:w-[50%] " alt="register" />
+      <div className="md:w-[50%] mx-2">
+        <h1 className="md:text-5xl font-bold text-center my-5 head">
           Register Form{" "}
         </h1>
         <form className="flex flex-col ml-5 text-[18px]  my-10">
@@ -43,14 +43,14 @@ const Register = () => {
           </div>
           {/* blood grop and phone number */}
           <div className="flex flex-row input-box justify-around">
-            <select className="bg-black block w-full mr-5 ml-1 text-[18px] border-2 pl-2   capitalize border-white">
+            <select className="bg-black block w-[92%] md:w-full md:mr-5 md:ml-1 text-[18px] border-2 pl-2   capitalize border-white">
               <option defaultValue value="Availablty">
                 Availablty
               </option>
               <option value="YES">YES</option>
               <option value="NO">NO</option>
             </select>
-            <select className="bg-black block w-full mr-5 ml-1 border-2 pl-2 text-[18px]  capitalize border-white">
+            <select className="bg-black block w-[92%] md:w-full mr-5 ml-1 border-2 pl-2 text-[18px]  capitalize border-white">
               <option defaultValue value="Select Blood Group">
                 Select Blood Group
               </option>
@@ -82,7 +82,7 @@ const Register = () => {
           <input
             type="submit"
             value="Submit"
-            className="w-[28rem] ml-2 text-[18px]  my-5 hover:bg-red-600 border-2 border-white "
+            className="w-[28rem] md:ml-2 mt-[10px] text-[18px]  my-5 hover:bg-red-600 border-2 border-white "
           />
         </form>
       </div>

@@ -9,7 +9,7 @@ const Footer = () => {
           backgroundColor: " linear-gradient(90deg, #1e293b, #0f172a 100%);",
         }}
       >
-        <div className="container pl-[8.5rem] pt-6 ">
+        <div className="container md:pl-[8.5rem] pt-6 ">
           <div className="flex justify-center mb-4  ml-50">
             <a
               href="#!"
@@ -140,13 +140,13 @@ const Footer = () => {
           </div>
         </div>
         <div
-          className="text-center p-4 text-xl"
+          className="text-center p-4 md:text-xl "
           style={{
             backgroundColor: " linear-gradient(90deg, #1e293b, #0f172a 100%);",
           }}
         >
-          © 2021 Copyright:
-          <a className="text-whitehite " href="#">
+          © 2021 Copyright:<br></br>
+          <a className="text-white font-mono " href="#">
             Powered By Parvej khan
           </a>
         </div>

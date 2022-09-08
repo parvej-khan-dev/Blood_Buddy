@@ -3,11 +3,11 @@ import postwithbg from "../assets/blood.png";
 import "./Register.css";
 function Postrequest() {
   return (
-    <div className=" w-[80%]  h-[70%] mx-auto  my-10 border-white border-2 flex flex-row  rounded shadow-lg  shadow-white/50">
+    <div className=" md:w-[80%] w-[95%]  h-[70%] mx-auto  my-10 border-white md:border-2 flex flex-row  rounded shadow-lg  shadow-white/50">
       <img src={postwithbg} className="w-[70%] " alt="postrequest" />
-      <div>
+      <div className="w-[100%]">
         <div className="w-[95%]">
-          <h1 className="text-5xl font-bold text-center my-5 head">
+          <h1 className="md:text-5xl text-8xl font-bold text-center my-5 head">
             Post Blood Request
           </h1>
           <form className="flex flex-col mx-5   my-10">
@@ -44,7 +44,7 @@ function Postrequest() {
             </div>
             {/* blood grop and phone number */}
             <div className="flex flex-row input-box justify-around">
-              <select className="bg-black block w-full text-xl mr-5 ml-1 border-2 pl-2   capitalize border-white">
+              <select className="bg-black block w-[92%] md:w-full text-xl md:mr-5 mr-1 ml-1 border-2 pl-2   capitalize border-white">
                 <option defaultValue value="Select Blood Group" id="bloodgroup">
                   patient Blood Group
                 </option>
@@ -70,15 +70,15 @@ function Postrequest() {
                 placeholder="Location"
                 rows="2"
                 cols="50"
-                className=" location bg-transparent text-xl  pl-2 
-                mr-6 ml-2 my-2 rounded capitalize "
+                className=" location bg-transparent text-xl   w-[93%] pl-2 
+                mr-6 ml-2 mb-5 mt-2 mr-5 rounded capitalize "
               ></textarea>
             </div>
 
             <input
               type="submit"
               value="Submit"
-              className="w-[34rem] ml-3 text-xl  my-3 hover:bg-red-600 border-2 border-white "
+              className="w-[34rem] ml-3 text-xl  mt-[10px] hover:bg-red-600 border-2 border-white "
             />
           </form>
         </div>
