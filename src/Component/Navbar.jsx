@@ -4,7 +4,7 @@ import LeftPanel from "./LeftPanel";
 
 const Navbar = () => {
   return (
-    <nav className="w-[100%] overflow-x-hidden  h-16 bg-[#FE3C47] relative font-sans flex flex-row justify-between items-center">
+    <nav className="w-[100%]   h-16 bg-[#FE3C47] relative font-sans flex flex-row justify-between items-center">
       <Link to="/">
         <h1
           className="text-left text-white text-2xl md:text-4xl font-bold 

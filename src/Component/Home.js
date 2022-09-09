@@ -10,6 +10,9 @@ const Image = styled.img`
   width: 575px;
   margin-right: 90px;
   height: 400px;
+  @media (max-width: 360px) {
+    display: none;
+  }
 `;
 
 const H1 = styled.h1`
@@ -25,8 +28,9 @@ const H1 = styled.h1`
   line-height: 1.5;
   margin: 0px 25px;
 
-  @media (max-width: 360px) {
-    font-size: 1.5rem;
+  @media (min-width: 360px) {
+    font-size: 2.5rem;
+
     width: 90%;
     padding: 10px;
     margin-left: 20px;
@@ -48,8 +52,8 @@ const Button = styled.button`
     background-color: black;
   }
 
-  @media (max-width: 360px) {
-    font-size: 14px;
+  @media (min-width: 360px) {
+    font-size: 18px;
     padding: 8px 15px;
     margin: 5px;
   }
@@ -57,8 +61,8 @@ const Button = styled.button`
 
 const Home = () => {
   return (
-    <div>
-      <section className="w-[100%] md:h-[100vh]  h-[35vh] text-white md:p-[10px]  bg-gradient-to-r from-cyan-600 to-blue-900 flex flex-row justify-center items-center ">
+    <div className="overflow-x-hidden	">
+      <section className="w-[100%] md:h-[100vh] h-[100vh] text-white md:p-[10px]  bg-gradient-to-r from-cyan-600 to-blue-900 flex flex-row justify-center items-center ">
         <div style={{ position: "relative" }}>
           <H1>Donote Blood Near you get a chance to Save Life </H1>
           <div className="flex flex-row md:mx-10 mx-5 md:my-5 my-2 md:leading-5 justify-center	">
