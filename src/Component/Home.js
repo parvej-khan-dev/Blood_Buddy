@@ -9,67 +9,29 @@ const Image = styled.img`
   border-radius: 50%;
   width: 575px;
   margin-right: 90px;
-  height: 400px;
+  height: 500px;
   @media (max-width: 360px) {
     display: none;
-  }
-`;
-
-const H1 = styled.h1`
-  width: 100%;
-  font-size: 3.5rem;
-  font-family: sans-serif;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  text-align: center;
-  font-weight: 700;
-  margin: 0px 5px;
-  text-align: center;
-  line-height: 1.5;
-  margin: 0px 25px;
-
-  @media (min-width: 360px) {
-    font-size: 2.5rem;
-
-    width: 90%;
-    padding: 10px;
-    margin-left: 20px;
-  }
-`;
-
-const Button = styled.button`
-  background-color: #ab071e;
-  color: white;
-  padding: 15px 30px;
-  font-size: 22px;
-  font-weight: 700px;
-  margin: 20px;
-  border-radius: 10px;
-  text-transform: uppercase;
-  font-family: sans-serif;
-
-  &:hover {
-    background-color: black;
-  }
-
-  @media (min-width: 360px) {
-    font-size: 18px;
-    padding: 8px 15px;
-    margin: 5px;
   }
 `;
 
 const Home = () => {
   return (
     <div className="overflow-x-hidden	">
-      <section className="w-[100%] md:h-[100vh] h-[100vh] text-white md:p-[10px]  bg-gradient-to-r from-cyan-600 to-blue-900 flex flex-row justify-center items-center ">
+      <section className="w-[100%] md:h-[100vh] h-[60vh] text-white md:p-[10px]  bg-gradient-to-r from-cyan-600 to-blue-900 flex flex-row justify-center items-center ">
         <div style={{ position: "relative" }}>
-          <H1>Donote Blood Near you get a chance to Save Life </H1>
-          <div className="flex flex-row md:mx-10 mx-5 md:my-5 my-2 md:leading-5 justify-center	">
+          <h1 className="w-[85%] text-[30px] md:text-[3.0rem] font-bold mx-[25px]">
+            Donote Blood Near you get a chance to Save Life
+          </h1>
+          <div className=" w-[70%] flex flex-row md:justify-center md:mx-10 md:my-10 pt-10 ">
             <Link to="./register">
-              <Button>Register Now</Button>
+              <button className="bg-red-600 text-2xl md:text-[23px] md:mr-[40px] md:px-18 md:py-3 m-3 px-8 py-3 ring-offset-2 ring-2 rounded hover:bg-black hover:text-white">
+                Register
+              </button>
             </Link>
-            <Button>Support Us</Button>
+            <button className="bg-red-600 text-2xl md:text-[23px] md:mr-[40px] md:px-18 md:py-3 px-8 py-3 m-3 ring-offset-2 ring-2 rounded hover:bg-black hover:text-white ">
+              Support
+            </button>
           </div>
         </div>
 

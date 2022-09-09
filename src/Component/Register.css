@@ -41,18 +41,18 @@ textarea {
   }
 
   input {
-    width: 100%;
+    width: 98%;
     margin: 10px 0px;
     height: 3rem;
     font-size: 22px;
   }
 
   select {
-    width: 92%;
+    width: 98%;
   }
 
   input[type="submit"] {
-    width: 92%;
+    width: 98%;
     margin: 0px;
   }
 

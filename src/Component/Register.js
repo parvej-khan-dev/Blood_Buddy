@@ -4,10 +4,10 @@ import "./Register.css";
 
 const Register = () => {
   return (
-    <div className="countiner md:w-[80%]  h-[70%] mx-auto  my-10 border-white border-2 flex flex-row  rounded shadow-lg  shadow-white/50">
+    <div className="countiner md:w-[90%]  h-[70%] mx-auto  my-10 border-white border-2 flex flex-row  rounded shadow-lg  shadow-white/50">
       <img src={donationgif} className="md:w-[50%] " alt="register" />
       <div className="md:w-[50%] mx-2">
-        <h1 className="md:text-5xl font-bold text-center my-5 head">
+        <h1 className="md:text-5xl font-bold text-center my-5 head text-center">
           Register Form{" "}
         </h1>
         <form className="flex flex-col ml-5 text-[18px]  my-10">
@@ -23,7 +23,7 @@ const Register = () => {
               type="text"
               name="name"
               placeholder="last Name"
-              className="bg-transparent border-2 text-[18px] pl-2 ml-1 mr-5 capitalize border-white"
+              className="bg-transparent border-2 text-[18px] pl-2 ml-1  capitalize border-white"
             />
           </div>
           {/* email */}
@@ -82,7 +82,7 @@ const Register = () => {
           <input
             type="submit"
             value="Submit"
-            className="w-[28rem] md:ml-2 mt-[10px] text-[18px]  my-5 hover:bg-red-600 border-2 border-white "
+            className="md:w-[35rem] w-[28rem] md:ml-2 mt-[10px] text-[18px]  my-5 hover:bg-red-600 border-2 border-white "
           />
         </form>
       </div>
