@@ -1,64 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Serach.css";
-import data from "../data.json";
+import Table from "./Table";
+// import data from "../data.json";
 
 const Search = () => {
-  // const [error, setError] = useState(null);
-  // const [isLoaded, setIsLoaded] = useState(false);
-  // const [items, setItems] = useState(data);
-  const [q, setQ] = useState("");
-  const [searchParam] = useState(["city", "name", "bloodgroup"]);
-  const [filterParam, setFilterParam] = useState(["All"]);
-  const [showdata, setShowData] = useState(false);
+  const [users, setUsers] = useState([]);
 
-  // fatec api data
+  const fatchdata = () => {
+    fetch("https://blood-blood-api1.herokuapp.com/api/users")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setUsers(data);
+        console.log(data);
+      });
+  };
 
-  // useEffect(() => {
-  //   fetch("https://jsonplaceholder.typicode.com/users")
-  //     .then((res) => res.json())
-  //     .then(
-  //       (result) => {
-  //         setIsLoaded(true);
-  //         setItems(result);
-  //       },
-  //       (error) => {
-  //         setIsLoaded(true);
-  //         setError(error);
-  //       }
-  //     );
-  // }, []);
+  useEffect(() => {
+    fatchdata();
+  }, []);
 
-  const dataValue = Object.values(data);
-
-  function search(data) {
-    return data.filter((item) => {
-      if (item.bloodgroup == filterParam) {
-        return searchParam.some((newItem) => {
-          return (
-            item[newItem]?.toString().toLowerCase().indexOf(q.toLowerCase()) >
-            -1
-          );
-        });
-      } else if (filterParam == "All") {
-        return searchParam.some((newItem) => {
-          return (
-            item[newItem]?.toString().toLowerCase().indexOf(q.toLowerCase()) >
-            -1
-          );
-        });
-      }
-    });
-  }
-
-  function showtoggle() {
-    if (q.length <= 0) {
-      alert("Please Select Location And Blood Group");
-    } else {
-      setShowData(!showdata);
-    }
-  }
-  // help to add blood in dropdown
-
+  console.log("users", users);
   return (
     <div>
       {/* search header */}
@@ -66,17 +29,15 @@ const Search = () => {
         <input
           type="text"
           name="City"
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
           placeholder="Select Your Location"
-          className="md:w-[60%] w-[100%] text-[20px] pl-[10px] bg-black border-2 border-white "
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         />
 
         <select
-          className="text-gray-400 md:mx-5 md:w-[30%] w-[99%] pl-2 "
-          onChange={(e) => {
-            setFilterParam(e.target.value);
-          }}
+          className=" lg:w-[20%] mx-4 bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+          // onChange={(e) => {
+          //   setFilterParam(e.target.value);
+          // }}
         >
           <option defaultValue value="All">
             Select Blood Group
@@ -94,51 +55,47 @@ const Search = () => {
           className="bg-red-600 h-15 text-[22px] py-1  px-8
         shadow-lg  m-2 hover:border-red-600 cursor-pointer hover:border-2  p-2 rounded hover:bg-black
         hover:text-red-600"
-          onClick={showtoggle}
         >
           Search
         </button>
       </div>
       {/* get data from api  */}
-
-      {showdata && (
-        <div className="overflow-x-auto">
-          <table className="md:table-fixed border-collapse border-2 mx-auto my-10 w-[85%] text-[18px]">
-            <thead>
-              <tr className="border-2">
-                <th className="border-2 font-bold text-[16px] md:text-[22px] text-red-600 uppercase">
-                  Donor Name
-                </th>
-                <th className="border-2 font-bold text-[16px] md:text-[22px] text-red-600 uppercase">
-                  Location
-                </th>
-                <th className="border-2 font-bold text-[16px] md:text-[22px] text-red-600 uppercase">
-                  Contact No.
-                </th>
-                <th className="border-2 font-bold text-[16px] md:text-[22px] text-red-600 uppercase">
-                  Blood Group
-                </th>
-                <th className="border-2 font-bold text-[16px] md:text-[22px] text-red-600 uppercase">
-                  Availability
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {search(dataValue).map((user) => {
-                return (
-                  <tr key={user.id}>
-                    <td className="border-2">{user.name}</td>
-                    <td className="border-2">{user.city}</td>
-                    <td className="border-2">{user.phone}</td>
-                    <td className="border-2">{user.bloodgroup}</td>
-                    <td className="border-2">{user.availbty}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      )}
+      <div className="overflow-x-auto">
+        <table className="md:table-fixed border-collapse border-2 mx-auto my-10 w-[85%] text-[18px]">
+          <thead>
+            <tr className="border-2">
+              <th className="border-2 font-bold text-[16px] md:text-[22px] text-red-600 uppercase">
+                Donor Name
+              </th>
+              <th className="border-2 font-bold text-[16px] md:text-[22px] text-red-600 uppercase">
+                Location
+              </th>
+              <th className="border-2 font-bold text-[16px] md:text-[22px] text-red-600 uppercase">
+                Contact No.
+              </th>
+              <th className="border-2 font-bold text-[16px] md:text-[22px] text-red-600 uppercase">
+                Blood Group
+              </th>
+              <th className="border-2 font-bold text-[16px] md:text-[22px] text-red-600 uppercase">
+                Availability
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map((item, index) => {
+              return (
+                <tr key={index}>
+                  <td className="border-2">{item.firstName}</td>
+                  <td className="border-2">{item.City}</td>
+                  <td className="border-2">{item.phone}</td>
+                  <td className="border-2">{item.bloodType}</td>
+                  <td className="border-2">{item.avialble}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

@@ -23,15 +23,30 @@ const Home = () => {
           <h1 className="w-[85%] text-[30px] md:text-[3.0rem] font-bold mx-[25px]">
             Donote Blood Near you get a chance to Save Life
           </h1>
-          <div className=" w-[70%] flex flex-row md:justify-center md:mx-10 md:my-10 pt-10 ">
+          <div className="block grid grid-cols-2 gap-2 lg:my-10 lg:ml-[0.25rem] lg:mr-[6.50rem]  mx-2 my-4">
             <Link to="./register">
-              <button className="bg-red-600 text-2xl md:text-[23px] md:mr-[40px] md:px-18 md:py-3 m-3 px-8 py-3 ring-offset-2 ring-2 rounded hover:bg-black hover:text-white">
-                Register
+              <button
+                type="button"
+                className="inline-flex px-8 py-3 my-1 text-sm lg:text-xl text-right lg:ml-[10rem]
+                 font-medium text-white transition bg-red-600 rounded-md shadow-sm hover:bg-indigo-700"
+                data-bs-toggle="button"
+                autocomplete="off"
+              >
+                Search Donor
               </button>
             </Link>
-            <button className="bg-red-600 text-2xl md:text-[23px] md:mr-[40px] md:px-18 md:py-3 px-8 py-3 m-3 ring-offset-2 ring-2 rounded hover:bg-black hover:text-white ">
-              Support
-            </button>
+            <Link to="./register">
+              <button
+                type="button"
+                className="inline-flex px-8 py-3 my-1 text-sm lg:text-xl  font-medium lg:mr-[13rem]
+              text-white transition bg-gray-800 rounded-md shadow-sm hover:bg-indigo-700 active"
+                data-bs-toggle="button"
+                autocomplete="off"
+                aria-pressed="true"
+              >
+                Donote Blood
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -53,7 +68,7 @@ const Home = () => {
       >
         Blood Donation Camp<br></br> Near You
       </h2>
-      <div className="md:p-10 md:m-10 m-5 flex flex-row flex-wrap place-items-center">
+      <div className="grid lg:grid-cols-4 gap-4 grid-row-4 ">
         <CardUI
           name="Blood Camp In Jhotwara"
           image={require("../assets/blooddoationvaishali.jpg")}
@@ -61,6 +76,10 @@ const Home = () => {
         <CardUI
           name="Blood Camp at Vaishali nagar"
           image={require("../assets/blooddonationjaipur.jpg")}
+        />
+        <CardUI
+          name="Blood Camp at Vidhadhar nagar"
+          image={require("../assets/bloodmalviya.jpg")}
         />
         <CardUI
           name="Blood Camp at Vidhadhar nagar"
