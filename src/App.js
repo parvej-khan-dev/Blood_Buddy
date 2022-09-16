@@ -10,6 +10,7 @@ import Login from "./Component/Login";
 
 function App() {
   return (
+    // Set context
     <BrowserRouter>
       <div className="App ">
         <Navbar />

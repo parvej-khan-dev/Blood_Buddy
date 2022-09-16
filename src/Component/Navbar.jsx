@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FiUser } from "react-icons/fi";
+// import { FiUser } from "react-icons/fi";
 
 // import LeftPanel from "./LeftPanel";
 
