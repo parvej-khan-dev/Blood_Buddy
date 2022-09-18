@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 // import "./Register.css";
 import { useNavigate } from "react-router-dom";
+import Postrequest from "./Postrequest";
 
 const Register = () => {
   const navigate = useNavigate();
+
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
@@ -78,6 +80,19 @@ const Register = () => {
     }
   };
 
+  const [donerform, setDonerForm] = useState(false);
+  const [doneeform, setDoneeForm] = useState(false);
+
+  function donerShow() {
+    setDonerForm(true);
+    setDoneeForm(false);
+  }
+
+  function doneeShow() {
+    setDoneeForm(true);
+    setDonerForm(false);
+  }
+
   return (
     <>
       <section className="bg-white dark:bg-gray-50 text-black">
@@ -100,7 +115,12 @@ const Register = () => {
                   Select type of account
                 </h1>
                 <div className="mt-3 md:flex md:items-center md:-mx-2">
-                  <button className="flex justify-center w-full px-6 py-3 text-white bg-red-600 rounded-md md:w-auto md:mx-2 focus:outline-none">
+                  <button
+                    id="Donor"
+                    onClick={donerShow}
+                    className="flex justify-center focus:bg-white focus:text-red-600 focus:border focus:border-blue-500 
+                                        w-full px-6 py-3 text-white bg-red-600 rounded-md md:w-auto md:mx-2 focus:outline-none"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="w-6 h-6"
@@ -117,7 +137,11 @@ const Register = () => {
                     </svg>
                     <span className="mx-2">As Donar</span>
                   </button>
-                  <button className="flex justify-center w-full px-6 py-3 mt-4 text-red-600 border border-blue-500 rounded-md md:mt-0 md:w-auto md:mx-2 dark:border-red-400 dark:text-black focus:outline-none">
+                  <button
+                    id="donee"
+                    onClick={doneeShow}
+                    className="flex justify-center focus:bg-black-500 focus:ring-black-500  w-full px-6 py-3 mt-4 text-red-600 border border-blue-500 rounded-md md:mt-0 md:w-auto md:mx-2 dark:border-red-400 dark:text-black focus:outline-none"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="w-6 h-6"
@@ -136,187 +160,191 @@ const Register = () => {
                   </button>
                 </div>
               </div>
+              {donerform ? (
+                <form
+                  method="POST"
+                  className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2 text-left "
+                >
+                  <div>
+                    <label className="block mb-2 text-sm text-gray-600 dark:text-gray-800">
+                      First Name
+                    </label>
+                    <input
+                      name="firstName"
+                      value={user.firstName}
+                      onChange={handleChange}
+                      type="text"
+                      placeholder="John"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block mb-2 text-sm text-gray-600 dark:text-gray-800">
+                      Last name
+                    </label>
+                    <input
+                      onChange={handleChange}
+                      name="lastName"
+                      value={user.lastName}
+                      type="text"
+                      placeholder="Snow"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block mb-2 text-sm text-gray-600 dark:text-gray-800">
+                      Phone number
+                    </label>
+                    <input
+                      onChange={handleChange}
+                      name="phone"
+                      value={user.phone}
+                      type="text"
+                      placeholder="XXX-XX-XXXX-XXX"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block mb-2 text-sm text-gray-600 dark:text-gray-800">
+                      Email address
+                    </label>
+                    <input
+                      onChange={handleChange}
+                      name="email"
+                      value={user.email}
+                      type="email"
+                      placeholder="johnsnow@example.com"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block mb-2 text-sm text-gray-600 dark:text-gray-800">
+                      Password
+                    </label>
+                    <input
+                      onChange={handleChange}
+                      name="password"
+                      value={user.password}
+                      type="password"
+                      placeholder="Enter your password"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block mb-2 text-sm text-gray-600 dark:text-gray-800">
+                      Confirm password
+                    </label>
+                    <input
+                      onChange={handleChange}
+                      name="cpassword"
+                      value={user.cpassword}
+                      type="password"
+                      placeholder="Enter your password"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    />
+                  </div>
 
-              {/* form for register  */}
-              <form
-                method="POST"
-                className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2 text-left"
-              >
-                <div>
-                  <label className="block mb-2 text-sm text-gray-600 dark:text-gray-800">
-                    First Name
-                  </label>
-                  <input
-                    name="firstName"
-                    value={user.firstName}
-                    onChange={handleChange}
-                    type="text"
-                    placeholder="John"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  />
-                </div>
-                <div>
-                  <label className="block mb-2 text-sm text-gray-600 dark:text-gray-800">
-                    Last name
-                  </label>
-                  <input
-                    onChange={handleChange}
-                    name="lastName"
-                    value={user.lastName}
-                    type="text"
-                    placeholder="Snow"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  />
-                </div>
-                <div>
-                  <label className="block mb-2 text-sm text-gray-600 dark:text-gray-800">
-                    Phone number
-                  </label>
-                  <input
-                    onChange={handleChange}
-                    name="phone"
-                    value={user.phone}
-                    type="text"
-                    placeholder="XXX-XX-XXXX-XXX"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  />
-                </div>
-                <div>
-                  <label className="block mb-2 text-sm text-gray-600 dark:text-gray-800">
-                    Email address
-                  </label>
-                  <input
-                    onChange={handleChange}
-                    name="email"
-                    value={user.email}
-                    type="email"
-                    placeholder="johnsnow@example.com"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  />
-                </div>
-                <div>
-                  <label className="block mb-2 text-sm text-gray-600 dark:text-gray-800">
-                    Password
-                  </label>
-                  <input
-                    onChange={handleChange}
-                    name="password"
-                    value={user.password}
-                    type="password"
-                    placeholder="Enter your password"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  />
-                </div>
-                <div>
-                  <label className="block mb-2 text-sm text-gray-600 dark:text-gray-800">
-                    Confirm password
-                  </label>
-                  <input
-                    onChange={handleChange}
-                    name="cpassword"
-                    value={user.cpassword}
-                    type="password"
-                    placeholder="Enter your password"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  />
-                </div>
+                  {/* bloodgroup & Availvblty */}
 
-                {/* bloodgroup & Availvblty */}
+                  <div>
+                    <label
+                      htmlFor="countries"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-800"
+                    >
+                      Select an option
+                    </label>
+                    <select
+                      name="bloodType"
+                      value={user.bloodType}
+                      onChange={handleChange}
+                      id="countries"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    >
+                      <option selected="">Choose Your BloodGroup</option>
+                      <option value="A-">A-</option>
+                      <option value="B-">B-</option>
+                      <option value="B+">B+</option>
+                      <option value="O+">O+</option>
+                      <option value="O-">O-</option>
+                      <option value="AB-">AB-</option>
+                      <option value="AB+">AB+</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="countries"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-800"
+                    >
+                      Select an option
+                    </label>
+                    <select
+                      name="avialble"
+                      value={user.avialble}
+                      onChange={handleChange}
+                      id="countries"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    >
+                      <option selected="">Availability</option>
+                      <option value="YES">YES</option>
+                      <option value="NO">No</option>
+                    </select>
+                  </div>
 
-                <div>
-                  <label
-                    htmlFor="countries"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-800"
-                  >
-                    Select an option
-                  </label>
-                  <select
-                    name="bloodType"
-                    value={user.bloodType}
-                    onChange={handleChange}
-                    id="countries"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  >
-                    <option selected="">Choose Your BloodGroup</option>
-                    <option value="A-">A-</option>
-                    <option value="B-">B-</option>
-                    <option value="B+">B+</option>
-                    <option value="O+">O+</option>
-                    <option value="O-">O-</option>
-                    <option value="AB-">AB-</option>
-                    <option value="AB+">AB+</option>
-                  </select>
-                </div>
-                <div>
-                  <label
-                    htmlFor="countries"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-800"
-                  >
-                    Select an option
-                  </label>
-                  <select
-                    name="avialble"
-                    value={user.avialble}
-                    onChange={handleChange}
-                    id="countries"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  >
-                    <option selected="">Availability</option>
-                    <option value="YES">YES</option>
-                    <option value="NO">No</option>
-                  </select>
-                </div>
+                  {/* location  */}
+                  <div>
+                    <label className="block mb-2 text-sm text-gray-600 dark:text-gray-800">
+                      State
+                    </label>
+                    <input
+                      name="State"
+                      value={user.State}
+                      onChange={handleChange}
+                      type="text"
+                      placeholder="State"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block mb-2 text-sm text-gray-600 dark:text-gray-800">
+                      City
+                    </label>
+                    <input
+                      name="City"
+                      value={user.City}
+                      onChange={handleChange}
+                      type="text"
+                      placeholder="City"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    />
+                  </div>
 
-                {/* location  */}
-                <div>
-                  <label className="block mb-2 text-sm text-gray-600 dark:text-gray-800">
-                    State
-                  </label>
-                  <input
-                    name="State"
-                    value={user.State}
-                    onChange={handleChange}
-                    type="text"
-                    placeholder="State"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  />
-                </div>
-                <div>
-                  <label className="block mb-2 text-sm text-gray-600 dark:text-gray-800">
-                    City
-                  </label>
-                  <input
-                    name="City"
-                    value={user.City}
-                    onChange={handleChange}
-                    type="text"
-                    placeholder="City"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  />
-                </div>
-
-                <button
-                  onClick={postData}
-                  className="flex items-center justify-between w-full px-6 py-3 
+                  <button
+                    onClick={postData}
+                    className="flex items-center justify-between w-full px-6 py-3 
                 text-sm tracking-wide text-white capitalize transition-colors duration-300
                  transform bg-red-500 rounded-md hover:bg-red-400 focus:outline-none focus:ring
                  focus:ring-red-300 focus:ring-opacity-50"
-                >
-                  <span>Register </span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-5 h-5 rtl:-scale-x-100"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
                   >
-                    <path
-                      fillRule="evenodd"
-                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </button>
-              </form>
+                    <span>Register </span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-5 h-5 rtl:-scale-x-100"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </button>
+                </form>
+              ) : null}
+
+              {doneeform ? <Postrequest /> : null}
+
+              {/* form for register  */}
             </div>
           </div>
         </div>

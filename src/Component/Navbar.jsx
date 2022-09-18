@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import { FiUser } from "react-icons/fi";
-
-// import LeftPanel from "./LeftPanel";
 
 const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -10,9 +7,9 @@ const Navbar = () => {
     <header>
       <nav className="bg-white border-gray-200 px-4 lg:px-6 py-3.5 lg:py-5 dark:bg-gray-800">
         <div className="flex md:flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-          <Link to={"/"} className="flex items-center">
+          <Link to={"./"} className="flex items-center">
             <img
-              src="https://flowbite.com/docs/images/logo.svg"
+              src="https://cdn-icons-png.flaticon.com/512/2061/2061472.png"
               className="mr-3 h-6 sm:h-9"
               alt="BloodBoddy Logo"
             />
@@ -109,13 +106,25 @@ const Navbar = () => {
                   </div>
                   <ul className="flex flex-col items-center justify-between min-h-[250px]">
                     <li className="border-b border-gray-400 my-8 uppercase text-black">
-                      <Link to={"/"}>Home</Link>
+                      <Link to={"/"} onClick={() => setIsNavOpen(!isNavOpen)}>
+                        Home
+                      </Link>
                     </li>
                     <li className="border-b border-gray-400 my-8 uppercase  text-black">
-                      <Link to={"/register"}>Donate Blood</Link>
+                      <Link
+                        to={"/register"}
+                        onClick={() => setIsNavOpen(!isNavOpen)}
+                      >
+                        Donate Blood
+                      </Link>
                     </li>
                     <li className="border-b border-gray-400 my-8 uppercase text-black">
-                      <Link to={"/register"}>Post Donor request</Link>
+                      <Link
+                        to={"/register"}
+                        onClick={() => setIsNavOpen(!isNavOpen)}
+                      >
+                        Post Donor request
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -167,7 +176,7 @@ const Navbar = () => {
 
               <li>
                 <Link
-                  to={"/"}
+                  to={"/request"}
                   className="block py-2 pr-4 pl-3 text-gray-700 border-b
                   border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent
                   lg:border-0 lg:hover:text-red-700 lg:p-0 dark:text-gray-400

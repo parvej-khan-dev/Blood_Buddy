@@ -7,7 +7,7 @@ import "./Serach.css";
 const Search = () => {
   const [users, setUsers] = useState([]);
   const [q, setQ] = useState("");
-  const [searchParam] = useState(["City", "firstName", "bloodType"]);
+  const [searchParam] = useState(["City", "bloodType"]);
   const [filterParam, setFilterParam] = useState(["All"]);
   const [showdata, setShowData] = useState(false);
 
@@ -45,26 +45,10 @@ const Search = () => {
     });
   }
 
-  // const search_parameters = Object.keys(Object.assign({}, ...data));
-  const Bloodtypes_items = [...new Set(data.map((item) => item.bloodType))];
-  // const City_items = [...new Set(data.map((item) => item.City))];
-
-  // function search(users) {
-  //   return users.filter(
-  //     (item) =>
-  //       item.bloodType.includes(filter) &&
-  //       search_parameters.some((parameter) =>
-  //         item[parameter].toString().toLowerCase().includes(query)
-  //       )
-  //   );
-  // }
-
-  // const load_more = () => {
-  //   setpaginate((prevValue) => prevValue + 8);
-  // };
+  // const Bloodtypes_items = [...new Set(data.map((item) => item.bloodType))];
 
   const Showhandlebar = () => {
-    if (q.length <= 0) {
+    if (filterParam.length <= 0) {
       alert("Please Select Location And Blood Group");
     } else {
       setShowData(!showdata);
@@ -72,7 +56,7 @@ const Search = () => {
   };
 
   return (
-    <div className="h-[80vh]">
+    <div className={`${showdata} ? h-[90vh]: null`}>
       {/* search header */}
       <div className="input-box flex flex-row justify-center m-5">
         <input
@@ -81,11 +65,16 @@ const Search = () => {
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder="Select Your Location"
-          className="form-control bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="form-control lg:w-[50%] bg-gray-50 border lg:mx-2 border-gray-300 text-gray-900
+           text-md rounded-lg focus:ring-blue-500
+            focus:border-blue-500 block w-full 
+            p-2.5 dark:bg-gray-700 dark:border-gray-600
+             dark:placeholder-gray-400 dark:text-white 
+             dark:focus:ring-blue-500 dark:focus:border-blue-500"
         />
 
         <select
-          className=" lg:w-[20%] mx-4 bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+          className=" lg:w-[20%] mx-4 ml-0 bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
           onChange={(e) => {
             setFilterParam(e.target.value);
           }}
@@ -96,20 +85,21 @@ const Search = () => {
           <option value="A+">A+</option>
           <option value="B+">B+</option>
           <option value="B-">B-</option>
-          <option value="A-">A-</option>
-          {/* {Bloodtypes_items.map((item, index) => (
-            <option value={item} key={index}>
-              {item}
-            </option> */}
-          {/* ))} */}
+          <option value="A-">A-</option> // "A+", "B+", "O+", "AB+", "A-", "B-",
+          "O-", "AB-"
+          <option value="O-">O-</option>
+          <option value="AB-">AB-</option>
+          <option value="AB+">AB+</option>
+          <option value="O+">O+</option>
         </select>
         <button
           onClick={Showhandlebar}
-          className="bg-red-600 h-15 text-[22px] py-1  px-8
-        shadow-lg  m-2 hover:border-red-600 cursor-pointer hover:border-2  p-2 rounded hover:bg-black
-        hover:text-red-600"
+          className="bg-red-600 h-15 text-[20px] py-1  px-8 ml-0
+        shadow-lg  m-2 hover:border-red-600 cursor-pointer hover:border-2  text-white
+         p-2 rounded hover:bg-black
+        hover:text-white"
         >
-          Search
+          {showdata ? "Hide Data" : "Search "}
         </button>
       </div>
       {/* get data from api  */}
@@ -136,8 +126,6 @@ const Search = () => {
               </tr>
             </thead>
             <tbody>
-              {/* {users &&
-                users.map((item, index) => ( */}
               {search(data).map((item) => {
                 return (
                   <tr key={data._id}>

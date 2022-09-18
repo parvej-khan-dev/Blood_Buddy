@@ -1,11 +1,11 @@
 .App {
   text-align: center;
-  background-color: black;
+
   font-family: "Poppins", sans-serif;
 }
 body {
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
 }
 .App-logo {
   height: 40vmin;
@@ -19,7 +19,7 @@ body {
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #1f2937;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

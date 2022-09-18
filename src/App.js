@@ -13,7 +13,10 @@ function App() {
     // Set context
     <BrowserRouter>
       <div className="App ">
-        <Navbar />
+        <div className="h-10 mb-8 header">
+          <Navbar />
+        </div>
+
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/register" element={<Register />}></Route>
@@ -21,7 +24,10 @@ function App() {
           <Route exact path="/finddoner" element={<Search />}></Route>
           <Route exact path="/Login" element={<Login />}></Route>
         </Routes>
-        <Footer />
+
+        <div className="footer">
+          <Footer />
+        </div>
       </div>
     </BrowserRouter>
   );

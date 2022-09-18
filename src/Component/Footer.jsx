@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div>
-      <footer className="p-4 bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-900">
+      <footer className="p-4 bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-900   ">
         <div className="sm:flex sm:items-center sm:justify-between">
           <Link to={"/"} className="flex items-center mb-4 sm:mb-0">
             <img
-              src="https://flowbite.com/docs/images/logo.svg"
+              src="https://cdn-icons-png.flaticon.com/512/2061/2061472.png"
               className="mr-3 h-8"
               alt="BloodBoddy Logo"
             />
