@@ -48,7 +48,7 @@ const Search = () => {
   // const Bloodtypes_items = [...new Set(data.map((item) => item.bloodType))];
 
   const Showhandlebar = () => {
-    if (filterParam.length <= 0) {
+    if (q.length <= 0) {
       alert("Please Select Location And Blood Group");
     } else {
       setShowData(!showdata);
@@ -58,23 +58,28 @@ const Search = () => {
   return (
     <div className={`${showdata} ? h-[90vh]: null`}>
       {/* search header */}
-      <div className="input-box flex flex-row justify-center m-5">
+      <div className="input-box flex flex-row justify-center m-5  lg:my-10">
         <input
           type="text"
           name="City"
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder="Select Your Location"
-          className="form-control lg:w-[50%] bg-gray-50 border lg:mx-2 border-gray-300 text-gray-900
-           text-md rounded-lg focus:ring-blue-500
+          className="form-control lg:w-[50%] bg-gray-50 border 
+          lg:mx-2 border-gray-300 text-gray-900
+           text-sm rounded-lg focus:ring-blue-500
             focus:border-blue-500 block w-full 
             p-2.5 dark:bg-gray-700 dark:border-gray-600
-             dark:placeholder-gray-400 dark:text-white 
+             dark:placeholder-gray-400 dark:text-white lg:text-lg
              dark:focus:ring-blue-500 dark:focus:border-blue-500"
         />
 
         <select
-          className=" lg:w-[20%] mx-4 ml-0 bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+          className=" lg:w-[20%] mx-4 ml-0 bg-gray-50 border 
+          border-gray-300 text-gray-900 text-sm lg:text-lg rounded-lg focus:ring-blue-500 
+          focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 
+          dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 
+          dark:focus:border-blue-500 "
           onChange={(e) => {
             setFilterParam(e.target.value);
           }}
@@ -94,7 +99,7 @@ const Search = () => {
         </select>
         <button
           onClick={Showhandlebar}
-          className="bg-red-600 h-15 text-[20px] py-1  px-8 ml-0
+          className="bg-red-600 h-15 text-md py-1  px-5 ml-0 w-[317px]
         shadow-lg  m-2 hover:border-red-600 cursor-pointer hover:border-2  text-white
          p-2 rounded hover:bg-black
         hover:text-white"

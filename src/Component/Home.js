@@ -27,37 +27,39 @@ const Home = () => {
 
       {/* find filter */}
       <div className="pb-00">
-        <h2 className="lg:text-[2.5rem] text-[1.5rem] font-[800] leading-snug tracking-wide  uppercase mt-10 ">
+        <h2 className="text-3xl font-extrabold leading-9 my-10 text-center mb-10 border-b-2 border-gray-100 text-gray-900 mb-12 ">
           Find Blood Doner<br></br> Near You
         </h2>
         <Search />
       </div>
 
       {/* Card blood donation camp */}
-      <h2
-        className="md:text-[2.5rem] text-[1.5rem] font-[800] 
-      leading-snug tracking-wide  uppercase  md:mt-10 lg:text-[2.5rem]"
-      >
-        Blood Donation Camp<br></br> Near You
-      </h2>
-      <div className="grid lg:grid-cols-4 gap-4 grid-row-4 lg:py-10 ">
-        <CardUI
-          name="Blood Camp In Jhotwara"
-          image={require("../assets/bloodmalviya.jpg")}
-        />
-        <CardUI
-          name="Blood Camp at Vaishali nagar"
-          image={require("../assets/bloodmalviya.jpg")}
-        />
-        <CardUI
-          name="Blood Camp at Vidhadhar nagar"
-          image={require("../assets/bloodmalviya.jpg")}
-        />
-        <CardUI
-          name="Blood Camp at Vidhadhar nagar"
-          image={require("../assets/bloodmalviya.jpg")}
-        />
-      </div>
+      <section className="lg:bg-[#1e293b] lg:text-white lg:p-10 lg:my-10">
+        <h2
+          className="text-3xl font-extrabold leading-9 my-5 text-center mb-10 border-b-2 border-gray-100 
+       lg:text-white lg:pb-10 text-gray-900 mb-12"
+        >
+          Blood Donation Camp<br></br> Near You
+        </h2>
+        <div className="grid lg:grid-cols-4 gap-4 grid-row-4  ">
+          <CardUI
+            name="Blood Camp In Jhotwara"
+            image={require("../assets/bloodmalviya.jpg")}
+          />
+          <CardUI
+            name="Blood Camp at Vaishali nagar"
+            image={require("../assets/bloodmalviya.jpg")}
+          />
+          <CardUI
+            name="Blood Camp at Vidhadhar nagar"
+            image={require("../assets/bloodmalviya.jpg")}
+          />
+          <CardUI
+            name="Blood Camp at Vidhadhar nagar"
+            image={require("../assets/bloodmalviya.jpg")}
+          />
+        </div>
+      </section>
 
       {/* Faq */}
       <Faq />

@@ -3,7 +3,7 @@ import React from "react";
 const Faq = () => {
   return (
     <div>
-      <h2 className="text-3xl font-extrabold leading-9 text-center mb-10 border-b-2 border-gray-100 text-gray-900 mb-12">
+      <h2 className="text-3xl font-extrabold leading-9 text-center my-10 border-b-2 border-gray-100 text-gray-900 mb-12">
         FAQs
       </h2>
       <div className="max-w-screen-xl mx-auto p-8 text-left mb-10">
