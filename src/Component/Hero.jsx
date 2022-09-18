@@ -2,25 +2,30 @@ import React from "react";
 import { Link } from "react-router-dom";
 import videoBg from "../assets/video.mp4";
 
-import "./Hero.css";
-
 const Hero = () => {
   return (
-    <div className="main">
-      <div className="overlay z-10 relative"></div>
-      <video src={videoBg} autoPlay loop muted />
-      <div className="content z-1 absolute top-[229px] right-[10px]">
+    <div className="main ">
+      <div className="overlay z-10 relative "></div>
+      <video src={videoBg} autoPlay loop muted className="lg:w-full " />
+      <div className="content">
         <Link to={"./register"}>
           <button
-            className="w-full px-6 py-2.5 text-sm font-medium 
+            className="w-96 mx-10 px-6 py-2.5 text-sm font-medium 
                                   tracking-wider
                    text-white uppercase transition-colors duration-300 transform bg-red-600
                     rounded-lg lg:w-auto lg:mx-4 hover:bg-gray-500 focus:outline-none
-                    focus:bg-gray-600"
+                    focus:bg-gray-600  z-1 absolute hidden lg:block lg:top-[25rem]  lg:left-[-70px] lg:rotate-90"
           >
             Donote Now
           </button>
         </Link>
+
+        <h1
+          className="text-4xl lg:text-[126px] font-extrabold leading-9 my-5 text-center mb-10
+       lg:text-white lg:pb-10 text-white mb-12 absolute bottom-[10rem] left-[0rem] lg:top-[8rem] lg:right-[-45rem] "
+        >
+          BE A HERO
+        </h1>
       </div>
     </div>
 

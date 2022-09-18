@@ -99,7 +99,7 @@ const Search = () => {
         </select>
         <button
           onClick={Showhandlebar}
-          className="bg-red-600 h-15 text-md py-1  px-5 ml-0 w-[317px]
+          className="bg-red-600 h-15 text-md py-1  px-5 ml-0 w-[320px] py-3
         shadow-lg  m-2 hover:border-red-600 cursor-pointer hover:border-2  text-white
          p-2 rounded hover:bg-black
         hover:text-white"
