@@ -59,7 +59,7 @@ const Search = () => {
     <div className={`${showdata} ? h-[90vh]: null`}>
       {/* search header */}
       {/* <div className="input-box flex flex-row justify-center m-5  lg:my-10"> */}
-      <div className="input-box grid-container grid grid-cols-5 gap-1 lg:gap-4 mx-5">
+      <div className="input-box grid-container grid grid-cols-5 gap-1  mx-5">
         <input
           type="text"
           name="City"
@@ -76,7 +76,7 @@ const Search = () => {
         />
 
         <select
-          className=" lg:w-[20%] mx-4 ml-0 bg-gray-50 border  h-10  col-span-2
+          className="  mx-4 ml-0 bg-gray-50 border  h-10  col-span-2
           border-gray-300 text-gray-900 text-sm lg:text-lg rounded-lg focus:ring-blue-500 
           focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 
           dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 

@@ -31,7 +31,7 @@ const Home = () => {
           Blood Donation Camp<br></br> Near You
         </h2>
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-2">
             <CardUI
               name="Blood Camp In Jhotwara"
               image={require("../assets/bloodmalviya.jpg")}
