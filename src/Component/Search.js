@@ -2,6 +2,7 @@
 // import { searchUserStart, loadUsersStart } from "../redux/action";
 // import { data } from "autoprefixer";
 import React, { useEffect, useState } from "react";
+
 import "./Serach.css";
 
 const Search = () => {
@@ -66,8 +67,8 @@ const Search = () => {
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder="Select Your Location"
-          className="form-control  bg-gray-50 border  col-span-2 h-10
-          lg:mx-2 border-gray-300 text-gray-900
+          className="form-control  bg-gray-50 border  col-span-2 h-12 
+          lg:mx-5 border-gray-300 text-gray-900
            text-sm rounded-lg focus:ring-blue-500
             focus:border-blue-500 block w-full 
             p-2.5 dark:bg-gray-700 dark:border-gray-600
@@ -76,7 +77,7 @@ const Search = () => {
         />
 
         <select
-          className="  mx-4 ml-0 bg-gray-50 border  h-10  col-span-2
+          className="  mx-4 ml-0 bg-gray-50 border  h-12s  col-span-2 lg:mx-5
           border-gray-300 text-gray-900 text-sm lg:text-lg rounded-lg focus:ring-blue-500 
           focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 
           dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 
@@ -100,7 +101,7 @@ const Search = () => {
         </select>
         <button
           onClick={Showhandlebar}
-          className="bg-red-600 h-10 text-md py-1  px-5 ml-0 w-full py-2 mx-10 
+          className="bg-red-600 h-10 text-md py-1  px-5 ml-0 w-full py-2 mx-10 lg:mx-5 lg:h-12
         shadow-lg  m-2 hover:border-red-600 cursor-pointer hover:border-2  text-white
          p-2 rounded hover:bg-black col-span-1
         hover:text-white"

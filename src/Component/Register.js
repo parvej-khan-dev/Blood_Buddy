@@ -171,6 +171,7 @@ const Register = () => {
                     </label>
                     <input
                       name="firstName"
+                      required
                       value={user.firstName}
                       onChange={handleChange}
                       type="text"
@@ -185,6 +186,7 @@ const Register = () => {
                     <input
                       onChange={handleChange}
                       name="lastName"
+                      required
                       value={user.lastName}
                       type="text"
                       placeholder="Snow"
@@ -198,6 +200,7 @@ const Register = () => {
                     <input
                       onChange={handleChange}
                       name="phone"
+                      required
                       value={user.phone}
                       type="text"
                       placeholder="XXX-XX-XXXX-XXX"
@@ -211,6 +214,7 @@ const Register = () => {
                     <input
                       onChange={handleChange}
                       name="email"
+                      required
                       value={user.email}
                       type="email"
                       placeholder="johnsnow@example.com"
@@ -224,6 +228,7 @@ const Register = () => {
                     <input
                       onChange={handleChange}
                       name="password"
+                      required
                       value={user.password}
                       type="password"
                       placeholder="Enter your password"
@@ -239,6 +244,7 @@ const Register = () => {
                       name="cpassword"
                       value={user.cpassword}
                       type="password"
+                      required
                       placeholder="Enter your password"
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     />
@@ -257,6 +263,7 @@ const Register = () => {
                       name="bloodType"
                       value={user.bloodType}
                       onChange={handleChange}
+                      required
                       id="countries"
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     >
@@ -300,6 +307,7 @@ const Register = () => {
                       value={user.State}
                       onChange={handleChange}
                       type="text"
+                      required
                       placeholder="State"
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     />
@@ -311,6 +319,7 @@ const Register = () => {
                     <input
                       name="City"
                       value={user.City}
+                      required
                       onChange={handleChange}
                       type="text"
                       placeholder="City"

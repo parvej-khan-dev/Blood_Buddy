@@ -1,6 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
+
+import axios from "axios";
 
 const Login = () => {
+  const [data, setData] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
+
+  const handleChange = ({ currentTarget: input }) => {
+    setData({ ...data, [input.name]: input.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const url = "https://blood-blood-api1.herokuapp.com/api/auth";
+      const { data: res } = await axios.post(url, data);
+      localStorage.setItem("token", res.data);
+      window.location = "/";
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.status >= 400 &&
+        error.response.status <= 500
+      ) {
+        setError(error.response.data.message);
+      }
+    }
+  };
+
   return (
     <div>
       <section className="bg-gray-50 dark:bg-gray-900">
@@ -21,7 +48,7 @@ const Login = () => {
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Sign in to your account
               </h1>
-              <form className="space-y-4 md:space-y-6" action="#">
+              <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
                 <div>
                   <label
                     htmlFor="email"
@@ -32,6 +59,8 @@ const Login = () => {
                   <input
                     type="email"
                     name="email"
+                    onChange={handleChange}
+                    value={data.value}
                     id="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="name@company.com"
@@ -48,6 +77,8 @@ const Login = () => {
                   <input
                     type="password"
                     name="password"
+                    onChange={handleChange}
+                    value={data.password}
                     id="password"
                     placeholder="••••••••"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -90,13 +121,14 @@ const Login = () => {
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Don’t have an account yet?{" "}
                   <a
-                    href="#"
+                    href="./register"
                     className="font-medium text-red-600 hover:underline dark:text-red-500"
                   >
                     Sign up
                   </a>
                 </p>
               </form>
+              {error && <div className="text-red-600">{error}</div>}
             </div>
           </div>
         </div>
