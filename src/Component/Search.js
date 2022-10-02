@@ -103,7 +103,7 @@ const Search = () => {
           onClick={Showhandlebar}
           className="bg-red-600 h-10 text-md py-1  px-5 ml-0 w-full py-2 mx-10 lg:mx-5 lg:h-12
         shadow-lg  m-2 hover:border-red-600 cursor-pointer hover:border-2  text-white
-         p-2 rounded hover:bg-black col-span-1
+         p-2 rounded hover:bg-black col-span-1 
         hover:text-white"
         >
           {showdata ? "Hide Data" : "Search "}
